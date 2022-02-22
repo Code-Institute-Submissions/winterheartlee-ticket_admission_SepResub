@@ -1,13 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Raleway:wght@300&display=swap');
+
 html {
-    height: 100%;
+    font-family: 'Raleway', sans-serif;
+    font-family: 300;
 }
 
 body {
-    background: url('/media/homepage_image.jpg') no-repeat center center fixed;
-    background-size: cover;
-    height: calc(100vh - 164px); /* this creates space at top for navbar header */
     color: #555;
-    font-family: 'Lato';
+}
+
+.full-height {
 }
 
 /* Makes Font Awesome icons consistent size and position (from Bulma) */
@@ -19,22 +21,65 @@ body {
     width: 1.5rem;
 }
 
+.callout-container {
+    height: 100vh;
+
+    background: url('/media/homepage_image.jpg') no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    z-index: 2;
+}
+
+
+
+.container-100vh {
+    height: 100vh;
+}
+
+.callout-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: white;
+    text-shadow: 1px 1px 4px #000000;
+}
+
 .logo-font {
-    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #FF652F;
 }
 
-.main-logo-link {
-    width: fit-content;
+.nav-font {
+    font-weight: 400;
+    color: #747474;
 }
 
-.shop-now-button {
-    background: black;
+.register-button {
+    background: #FF652F;
     color: white;
     min-width: 260px;
 }
 
-.btn-black {
-    background: black;
+.container-wrapper--orange {
+    background-color: #FF652F;
+    color: white;
+}
+
+.container-wrapper--white {
+    background-color: #ffffff;
+    color: #747474;
+}
+
+.btn-grey {
+    background: #747474;
     color: white;
 }
 
@@ -44,25 +89,31 @@ body {
 .btn-black:hover,
 .btn-black:active,
 .btn-black:focus {
-    background: #222;
-    color: white;
+    background: #FFE400;
+    color: black;
 }
 
 .text-black {
     color: #000 !important;
 }
 
-.border-black {
-    border: 1px solid black !important;
+.border-grey {
+    border: 1px solid #747474 !important;
 }
+
+.footer-box {
+    background-color: #272727;
+    font-family: 'Raleway', sans-serif;
+}
+
 
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
 @media (min-width: 1200px) {
-  .container {
-    max-width: 80%;
-  }
+    .container {
+        max-width: 80%;
+    }
 }
 
 /* fixed top navbar only on medium and up */

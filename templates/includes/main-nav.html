@@ -1,0 +1,39 @@
+<div class="collapse navbar-collapse" id="main-nav">
+    <ul class="navbar-nav ml-auto mr-0 ">
+        <li class="nav-item">
+            <a class="nav-link text-black ml-4" href="#" id="features" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Features
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-black ml-4" href="#" id="pricing" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Pricing
+            </a>
+        </li>
+        {% if session.user %}
+        <li class="nav-item">
+            <a class="nav-link text-black ml-4" href="#" id="my-account" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                My Account
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                {% if request.user.is_authenticated %}
+                    {% if request.user.is_superuser %}
+                        <a href="" class="dropdown-item">Event Manager</a>
+                    {% endif %}
+                    <a href="" class="dropdown-item">My Profile</a>
+                    <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                {% else %}
+                    <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                    <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                {% endif %}
+            </div>
+        </li>
+        {% else %}
+        <li class="nav-item">
+            <a class="nav-link text-black ml-4" href="#" id="login-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Login
+            </a>
+        </li>
+        {% endif %}
+    </ul>
+</div>
