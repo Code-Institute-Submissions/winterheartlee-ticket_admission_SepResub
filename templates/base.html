@@ -44,8 +44,9 @@
 </head>
 
 <body>
-    <header class="container-fluid fixed-top">
-        <div id="topnav" class="row bg-white p-lg-4 d-none d-lg-flex">
+    <header class="container-fluid">
+        <!-- Desktop Nav -->
+        <div id="topnavbar" class="row bg-white p-lg-4 d-none d-lg-flex">
             <div class="col-lg-3">
                 <a href="{% url 'home' %}" class="nav-link">
                     <h2 class="logo-font my-0"><i class="fa-solid fa-bolt"> </i> Ticket Spark</h2>
@@ -72,10 +73,100 @@
                         aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    {% include 'includes/mobile-top-header.html' %}
-                    {% include 'includes/main-nav.html' %}
+                    <div class="collapse navbar-collapse" id="main-nav">
+                        <ul class="navbar-nav ml-auto mr-0 ">
+                            <li class="nav-item">
+                                <a class="nav-link text-black ml-4" href="#features">
+                                    Features
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-black ml-4" href="#pricing">
+                                    Pricing
+                                </a>
+                            </li>
+                            {% if session.user %}
+                            <li class="nav-item">
+                                <a class="nav-link text-black ml-4" href="#" id="my-account" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    My Account
+                                </a>
+                                <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                                    {% if request.user.is_authenticated %}
+                                    {% if request.user.is_superuser %}
+                                    {% endif %}
+                                    <a href="" class="dropdown-item">Overview</a>
+                                    <a href="" class="dropdown-item">Events</a>
+                                    <a href="" class="dropdown-item">Orders</a>
+                                    <a href="" class="dropdown-item">Events</a>
+                                    <a href="" class="dropdown-item">Promote</a>
+                                    <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                                    {% else %}
+                                    {% endif %}
+                                </div>
+                            </li>
+                            {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link text-black ml-4" href="{% url 'account_login' %}" id="login-link">
+                                    Login
+                                </a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </div>
                 </nav>
             </div>
+        </div>
+        <!-- Mobile Nav -->
+        <div class="row d-block d-lg-none">
+            <li class="list-inline-item">
+                <a class="nav-link" href="#" id="mobile-search" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <div class="text-center">
+                        <div><i class="fas fa-search fa-lg"></i></div>
+                    </div>
+                </a>
+                <div class="dropdown-menu border-0 w-100 p-3 rounded-0 my-0" aria-labelledby="mobile-search">
+                    <form class="form" method="GET" action="">
+                        <div class="input-group w-100">
+                            <input class="form-control border-grey rounded-2" type="text" name="q"
+                                placeholder="Search events">
+                            <div class="input-group-append">
+                                <button class="form-control form-control btn btn-grey border border-grey rounded-2"
+                                    type="submit">
+                                    <span class="icon">
+                                        <i class="fas fa-search"></i>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </li>
+            <li class="list-inline-item dropdown">
+                <a class="nav-link d-block d-lg-none" href="#" id="user-options" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <div class="text-center">
+                        <div><i class="fas fa-user fa-lg"></i></div>
+                    </div>
+                </a>
+                <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                    {% if request.user.is_authenticated %}
+                    {% if request.user.is_superuser %}
+                    {% endif %}
+                    <a href="" class="dropdown-item">Overview</a>
+                    <a href="" class="dropdown-item">Events</a>
+                    <a href="" class="dropdown-item">Orders</a>
+                    <a href="" class="dropdown-item">Events</a>
+                    <a href="" class="dropdown-item">Promote</a>
+                    <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                    {% else %}
+                    <a class="nav-link ml-4" href="{% url 'account_login' %}" id="login-link">
+                        Login
+                    </a>
+                    {% endif %}
+                </div>
+            </li>
         </div>
     </header>
 
