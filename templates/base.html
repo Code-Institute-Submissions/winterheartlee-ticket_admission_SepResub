@@ -40,10 +40,10 @@
     {% block extra_js %}
     {% endblock %}
 
-    <title>Ticket Spark {% block extra_title %}{% endblock %}</title>
+    <title>TicketSpark {% block extra_title %}{% endblock %}</title>
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
     <header class="container-fluid">
         <!-- Desktop Nav -->
         <div id="topnavbar" class="row bg-white p-lg-4 d-none d-lg-flex">
@@ -96,7 +96,7 @@
                                     {% if request.user.is_superuser %}
                                     {% endif %}
                                     <a href="" class="dropdown-item">Overview</a>
-                                    <a href="" class="dropdown-item">Events</a>
+                                    <a href="{% url 'events' %}" class="dropdown-item">Events</a>
                                     <a href="" class="dropdown-item">Orders</a>
                                     <a href="" class="dropdown-item">Events</a>
                                     <a href="" class="dropdown-item">Promote</a>
@@ -155,7 +155,7 @@
                     {% if request.user.is_superuser %}
                     {% endif %}
                     <a href="" class="dropdown-item">Overview</a>
-                    <a href="" class="dropdown-item">Events</a>
+                    <a href="{% url 'events' %}" class="dropdown-item">Events</a>
                     <a href="" class="dropdown-item">Orders</a>
                     <a href="" class="dropdown-item">Events</a>
                     <a href="" class="dropdown-item">Promote</a>
@@ -182,7 +182,7 @@
     {% endblock %}
 
     {% block footer %}
-    <footer class="container-fluid footer-box">
+    <footer class="container-fluid footer-box mt-auto">
         <div class="container">
             <div class="row p-lg-4 d-none d-lg-flex">
                 <div class="col-12 col-md ml-lg-5">
