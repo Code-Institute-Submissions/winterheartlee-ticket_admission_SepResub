@@ -53,7 +53,7 @@
                 </a>
             </div>
             <div class="col-lg-6 my-auto py-1 py-lg-0">
-                <form method="GET" action="">
+                <form method="GET" action="{% url 'events' %}">
                     <div class="input-group">
                         <input class="form-control border-grey rounded-2" type="text" size="25" name="q"
                             placeholder="Search events">
@@ -76,12 +76,12 @@
                     <div class="collapse navbar-collapse" id="main-nav">
                         <ul class="navbar-nav ml-auto mr-0 ">
                             <li class="nav-item">
-                                <a class="nav-link text-black ml-4" href="#features">
+                                <a class="nav-link text-black ml-4" href="{% url 'home' %}#features">
                                     Features
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-black ml-4" href="#pricing">
+                                <a class="nav-link text-black ml-4" href="{% url 'home' %}#pricing">
                                     Pricing
                                 </a>
                             </li>
@@ -127,7 +127,7 @@
                     </div>
                 </a>
                 <div class="dropdown-menu border-0 w-100 p-3 rounded-0 my-0" aria-labelledby="mobile-search">
-                    <form class="form" method="GET" action="">
+                    <form class="form" method="GET" action="{% url 'events' %}">
                         <div class="input-group w-100">
                             <input class="form-control border-grey rounded-2" type="text" name="q"
                                 placeholder="Search events">
