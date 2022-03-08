@@ -85,24 +85,18 @@
                                     Pricing
                                 </a>
                             </li>
-                            {% if session.user %}
-                            <li class="nav-item">
-                                <a class="nav-link text-black ml-4" href="#" id="my-account" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
+                            {% if request.user.is_authenticated %}
+                            <li class="nav-item list-inline-item dropdown">
+                                <a class="nav-link text-black ml-4 " href="#" id="my-account" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     My Account
                                 </a>
                                 <div class="dropdown-menu border-0" aria-labelledby="user-options">
-                                    {% if request.user.is_authenticated %}
-                                    {% if request.user.is_superuser %}
-                                    {% endif %}
                                     <a href="" class="dropdown-item">Overview</a>
-                                    <a href="{% url 'events' %}" class="dropdown-item">Events</a>
+                                    <a href="{% url 'events' %}?sort=starts&direction=asc" class="dropdown-item">Events</a> <!-- Will add sorting code to views.py later-->
                                     <a href="" class="dropdown-item">Orders</a>
                                     <a href="" class="dropdown-item">Events</a>
                                     <a href="" class="dropdown-item">Promote</a>
                                     <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                                    {% else %}
-                                    {% endif %}
                                 </div>
                             </li>
                             {% else %}
