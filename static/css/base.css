@@ -38,6 +38,30 @@ body {
     z-index: 2;
 }
 
+.welcome-container {
+    height: 100vh;
+
+    background: url('/media/welcome_image_3.jpg') no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    z-index: 2;
+}
+
+.welcome-images {
+    height: 60vh;
+    width: 35vw;
+    object-fit: cover;
+    margin-bottom: 100px;
+    border-radius: 30px;
+}
 
 
 .container-100vh {
@@ -77,6 +101,10 @@ body {
 .container-wrapper--white {
     background-color: #ffffff;
     color: #747474;
+}
+
+.curved-corners {
+    border-radius: 30px;
 }
 
 .btn-grey {
