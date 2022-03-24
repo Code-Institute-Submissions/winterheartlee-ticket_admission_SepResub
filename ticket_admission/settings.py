@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'home',
     'events',
     'bag',
+    'checkout',
 ]
 
 MIDDLEWARE = [
@@ -165,8 +166,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # Stripe
-FREE_DELIVERY = 0
-STANDARD_DELIVERY = 1.95
+POSTAL_DELIVERY = 1.95
+ELECTRONIC_DELIVERY = 0
 STRIPE_CURRENCY = 'gbp'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')

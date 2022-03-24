@@ -21,19 +21,17 @@ def bag_contents(request):
         })
 
     if total:
-        delivery = Decimal(settings.STANDARD_DELIVERY)
-        free_delivery = settings.FREE_DELIVERY - total
+        delivery = Decimal(settings.ELECTRONIC_DELIVERY)
     else:
-        delivery = 0
+        delivery = Decimal(settings.POSTAL_DELIVERY)
     
-    grand_total = delivery + total
+    grand_total = total + delivery
     
     context = {
         'bag_items': bag_items,
         'total': total,
         'ticket_count': ticket_count,
         'delivery': delivery,
-        'free_delivery': settings.FREE_DELIVERY,
         'grand_total': grand_total,
     }
 
