@@ -34,7 +34,7 @@
                             </a>
                             {% else %}
                             <a href="{% url 'event_detail' event.id %}">
-                                <img class="card-img-top img-fluid event-image" src="/media/noimage.png"
+                                <img class="card-img-top img-fluid event-image" src="{{ MEDIA_URL }}noimage.jpeg"
                                     alt="{{ event.name }}">
                             </a>
                             {% endif %}

@@ -141,6 +141,18 @@ height: 30vh;
 object-fit: cover;
 }
 
+.bag-image {
+    width: 100%;
+    height: 20vh;
+    object-fit: cover;
+    }
+
+.checkout-image {
+    width: 100%;
+    height: 7vh;
+    object-fit: cover;
+}
+    
 .btt-button {
     height: 42px;
     width: 42px;
