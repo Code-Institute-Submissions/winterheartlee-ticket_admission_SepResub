@@ -48,7 +48,11 @@ def checkout(request):
         }
         order_form = OrderForm(form_data)
         if order_form.is_valid():
-            order = order_form.save()
+            order = order_form.save(commit=False)
+            pid = request.POST.get('client_secret').split('_secret')[0]
+            order.stripe_pid = pid
+            order.original_bag = json.dumps(bag)
+            order.save()
             for item_id, item_data in bag.items():
                 try:
                     event = Event.objects.get(id=item_id)
@@ -59,11 +63,10 @@ def checkout(request):
                             quantity=item_data,
                         )
                         order_line_item.save()
-
                 except Event.DoesNotExist:
                     messages.error(request, (
-                        "One of the events in your bag wasn't found in our database. "
-                        "Please call for assistance")
+                        "One of the products in your bag wasn't found in our database. "
+                        "Please call us for assistance!")
                     )
                     order.delete()
                     return redirect(reverse('view_bag'))
@@ -76,9 +79,9 @@ def checkout(request):
     else:
         bag = request.session.get('bag', {})
         if not bag:
-            messages.error(request, "No events in your bag")
+            messages.error(request, "There's nothing in your bag at the moment")
             return redirect(reverse('events'))
-        
+
         current_bag = bag_contents(request)
         total = current_bag['grand_total']
         stripe_total = round(total * 100)
