@@ -91,7 +91,7 @@
                                     My Account
                                 </a>
                                 <div class="dropdown-menu border-0" aria-labelledby="user-options">
-                                    <a href="" class="dropdown-item">Overview</a>
+                                    <a href="{% url 'profile' %}" class="dropdown-item">Overview</a>
                                     <a href="{% url 'events' %}?sort=starts&direction=asc" class="dropdown-item">Events</a> <!-- Will add sorting code to views.py later-->
                                     <a href="" class="dropdown-item">Orders</a>
                                     <a href="" class="dropdown-item">Events</a>
@@ -161,7 +161,7 @@
                     {% if request.user.is_authenticated %}
                     {% if request.user.is_superuser %}
                     {% endif %}
-                    <a href="" class="dropdown-item">Overview</a>
+                    <a href="{% url 'profile' %}" class="dropdown-item">Overview</a>
                     <a href="{% url 'events' %}" class="dropdown-item">Events</a>
                     <a href="" class="dropdown-item">Orders</a>
                     <a href="" class="dropdown-item">Events</a>
