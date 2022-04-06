@@ -3,7 +3,8 @@ from django.contrib import messages
 from django.db.models import Q
 from .models import Event
 
-# Create your views here.
+from .models import Event
+from .forms import EventForm
 
 def all_events(request):
     """ A view to return all the events that belong to user """
@@ -37,3 +38,14 @@ def event_detail(request, event_id):
     }
 
     return render(request, 'events/event_detail.html', context)
+
+
+def add_event(request):
+    """ Add an event to the store """
+    form = EventForm()
+    template = 'events/add_event.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
