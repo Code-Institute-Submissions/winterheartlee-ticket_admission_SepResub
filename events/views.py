@@ -102,7 +102,7 @@ def delete_event(request, event_id):
     if not request.user.is_superuser:
             messages.error(request, 'Sorry, only event creators can do that.')
             return redirect(reverse('home'))
-            
+   
     event = get_object_or_404(Event, pk=event_id)
     event.delete()
     messages.success(request, 'Event removed!')
