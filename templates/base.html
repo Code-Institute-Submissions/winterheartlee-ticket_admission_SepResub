@@ -91,11 +91,9 @@
                                     My Account
                                 </a>
                                 <div class="dropdown-menu border-0" aria-labelledby="user-options">
-                                    <a href="{% url 'profile' %}" class="dropdown-item">Overview</a>
-                                    <a href="{% url 'events' %}?sort=starts&direction=asc" class="dropdown-item">Events</a> <!-- Will add sorting code to views.py later-->
-                                    <a href="" class="dropdown-item">Orders</a>
-                                    <a href="" class="dropdown-item">Events</a>
-                                    <a href="" class="dropdown-item">Promote</a>
+                                    <a href="{% url 'profile' %}" class="dropdown-item">Profile</a>
+                                    <a href="{% url 'events' %}?sort=starts&direction=asc" class="dropdown-item">My Events</a> <!-- Will add sorting code to views.py later-->
+                                    <a href="{% url 'add_event' %}" class="dropdown-item">Create Events</a>
                                     <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
                                 </div>
                             </li>
@@ -161,11 +159,9 @@
                     {% if request.user.is_authenticated %}
                     {% if request.user.is_superuser %}
                     {% endif %}
-                    <a href="{% url 'profile' %}" class="dropdown-item">Overview</a>
-                    <a href="{% url 'events' %}" class="dropdown-item">Events</a>
-                    <a href="" class="dropdown-item">Orders</a>
-                    <a href="" class="dropdown-item">Events</a>
-                    <a href="" class="dropdown-item">Promote</a>
+                    <a href="{% url 'profile' %}" class="dropdown-item">Profile</a>
+                    <a href="{% url 'events' %}" class="dropdown-item">My Events</a>
+                    <a href="{% url 'add_event' %}" class="dropdown-item">Create</a>
                     <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
                     {% else %}
                     <a class="nav-link ml-4" href="{% url 'account_login' %}" id="login-link">

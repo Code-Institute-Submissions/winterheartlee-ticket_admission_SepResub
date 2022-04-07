@@ -4,8 +4,8 @@ from django.db import models
 
 class Event(models.Model):
     name = models.CharField(max_length=254)
-    starts = models.DateTimeField()
-    ends = models.DateTimeField()
+    starts = models.DateTimeField(null=True, blank=True)
+    ends = models.DateTimeField(null=True, blank=True)
     location_name = models.CharField(max_length=254, null=True, blank=True)
     location_postcode = models.CharField(max_length=8, null=True, blank=True)
     description = models.TextField()
