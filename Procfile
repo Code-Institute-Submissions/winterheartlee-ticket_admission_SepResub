@@ -1,0 +1,1 @@
+web: gunicorn ticket_admission.wsgi:application
