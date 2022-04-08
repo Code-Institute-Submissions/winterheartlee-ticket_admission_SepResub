@@ -1,0 +1,4 @@
+{% if item.event.image %}
+    <img class="img-fluid rounded bag-image" src="{{ item.event.image.url }}" alt="{{ item.event.name }}">{% else %}
+    <img class="img-fluid rounded bag-image" src="{{ MEDIA_URL }}noimage.jpeg" alt="{{ item.event.name }}"">
+{% endif %}
