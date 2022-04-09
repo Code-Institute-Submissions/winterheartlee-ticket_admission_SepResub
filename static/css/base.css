@@ -9,8 +9,7 @@ body {
     color: #555;
 }
 
-.full-height {
-}
+.full-height {}
 
 /* Makes Font Awesome icons consistent size and position (from Bulma) */
 .icon {
@@ -22,7 +21,7 @@ body {
 }
 
 .callout-container {
-    height: 100vh;
+    height: calc(100vh - 100px);
 
     background: url('/media/homepage_image.jpg') no-repeat center center;
     -webkit-background-size: cover;
@@ -65,7 +64,7 @@ body {
 
 
 .container-100vh {
-    height: 100vh;
+    height: calc(100vh - 100px);
     /* height: calc(100vh - 300px); */
 }
 
@@ -87,20 +86,14 @@ body {
     color: #747474;
 }
 
+.dropdown-menu {
+    text-align: left;
+}
+
 .register-button {
     background: #FF652F;
     color: white;
     min-width: 260px;
-}
-
-.container-wrapper--orange {
-    background-color: #FF652F;
-    color: white;
-}
-
-.container-wrapper--white {
-    background-color: #ffffff;
-    color: #747474;
 }
 
 .curved-corners {
@@ -136,33 +129,23 @@ body {
 }
 
 .card-img-top {
-width: 100%;
-height: 30vh;
-object-fit: cover;
+    width: 100%;
+    height: 30vh;
+    object-fit: cover;
 }
 
 .bag-image {
     width: 100%;
     height: 20vh;
     object-fit: cover;
-    }
+}
 
 .checkout-image {
     width: 100%;
     height: 7vh;
     object-fit: cover;
 }
-    
-.btt-button {
-    height: 42px;
-    width: 42px;
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    background-color: white;
-}
 
-.btt-link,
 .update-link,
 .remove-item {
     cursor: pointer;
@@ -171,6 +154,59 @@ object-fit: cover;
 input[name='q']::placeholder {
     color: #aab7c4;
 }
+
+/* Homepage Tab styling */
+
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 0px;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+    background-color: inherit;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 16px 16px;
+    transition: 0.3s;
+    width: 10rem;
+    color: white;
+    border-radius: 0.3rem;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #272727;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #FF652F;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 0px;
+    animation: fadeEffect 1s;
+}
+
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.centered-element {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 
 /* ------------------------------- bootstrap toasts */
 
@@ -191,10 +227,10 @@ input[name='q']::placeholder {
 
 /* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
 .arrow-up {
-    width: 0; 
-    height: 0; 
+    width: 0;
+    height: 0;
     border-left: 4px solid transparent;
-    border-right: 4px solid transparent; 
+    border-right: 4px solid transparent;
     border-bottom: 10px solid black;
     position: absolute;
     top: -10px;
@@ -244,8 +280,10 @@ input[name='q']::placeholder {
 /* Allauth form formatting */
 
 .allauth-form-inner-content p {
-    margin-top: 1.5rem; /* mt-4 */
-    color: #6c757d; /* text-secondary */
+    margin-top: 1.5rem;
+    /* mt-4 */
+    color: #6c757d;
+    /* text-secondary */
 }
 
 .allauth-form-inner-content input {
@@ -263,8 +301,8 @@ input[name='q']::placeholder {
 
 .allauth-form-inner-content button,
 .allauth-form-inner-content input[type='submit'] {
-	/* btn */
-	display: inline-block;
+    /* btn */
+    display: inline-block;
     font-weight: 400;
     color: #fff;
     text-align: center;
@@ -281,18 +319,19 @@ input[name='q']::placeholder {
     border-radius: 0;
 
     /* standard bootstrap btn transitions */
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
 .allauth-form-inner-content button:hover,
-.allauth-form-inner-content input[type='submit']:hover {	
-	color: #fff;
+.allauth-form-inner-content input[type='submit']:hover {
+    color: #fff;
     background-color: #222;
     border-color: #222;
 }
 
 .allauth-form-inner-content a {
-	color: #17a2b8; /* text-info */
+    color: #17a2b8;
+    /* text-info */
 }
 
 
@@ -330,11 +369,11 @@ input[name='q']::placeholder {
 /* Slightly larger container on xl screens */
 @media (min-width: 1200px) {
     .container {
-      max-width: 80%;
+        max-width: 80%;
     }
-  }
-  
-  /* fixed top navbar only on medium and up */
+}
+
+/* fixed top navbar only on medium and up */
 @media (min-width: 992px) {
     .fixed-top-desktop-only {
         position: fixed;
@@ -343,13 +382,13 @@ input[name='q']::placeholder {
         left: 0;
         z-index: 1030;
     }
-  
+
     .header-container {
         padding-top: 164px;
     }
 }
-  
-  /* pad the top a bit when navbar is collapsed on mobile */
+
+/* pad the top a bit when navbar is collapsed on mobile */
 @media (max-width: 991px) {
     .header-container {
         padding-top: 116px;
@@ -391,7 +430,8 @@ input[name='q']::placeholder {
         font-size: .75rem;
     }
 
-    .increment-qty, .decrement-qty {
+    .increment-qty,
+    .decrement-qty {
         padding: .25rem .5rem !important;
     }
 }

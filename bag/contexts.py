@@ -3,6 +3,7 @@ from django.conf import settings
 from django.shortcuts import get_object_or_404
 from events.models import Event
 
+
 def bag_contents(request):
 
     bag_items = []
@@ -19,14 +20,12 @@ def bag_contents(request):
             'quantity': quantity,
             'event': event,
         })
+    
+    # Will include option for postal delivery later
+    delivery = Decimal(settings.ELECTRONIC_DELIVERY)
 
-    if total:
-        delivery = Decimal(settings.ELECTRONIC_DELIVERY)
-    else:
-        delivery = Decimal(settings.POSTAL_DELIVERY)
-    
     grand_total = total + delivery
-    
+
     context = {
         'bag_items': bag_items,
         'total': total,
