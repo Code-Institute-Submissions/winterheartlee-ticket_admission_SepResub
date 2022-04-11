@@ -10,7 +10,8 @@ class Event(models.Model):
     location_postcode = models.CharField(max_length=8, null=True, blank=True)
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    available_tickets = models.IntegerField()
+    ticket_allocation = models.IntegerField()
+    ticket_stock = models.IntegerField(blank=True)
     image = models.ImageField(null=True, blank=True)
 
     def __str__(self):

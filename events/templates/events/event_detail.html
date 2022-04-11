@@ -7,7 +7,13 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
-                <div class="image-container my-5">
+                <div class="my-5">
+                    {% if request.user.is_superuser %}
+                    <p class="">
+                        <a href="{% url 'edit_event' event.id %}">Edit</a> | 
+                        <a class="text-danger" href="{% url 'delete_event' event.id %}">Delete</a>
+                    </p>
+                    {% endif %}
                     {% if event.image %}
                     <a href="{{ event.image.url }}" target="_blank">
                         <img class="card-img-top img-fluid" src="{{ event.image.url }}" alt="{{ event.name }}">
@@ -17,62 +23,57 @@
                         <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.jpeg" alt="{{ event.name }}">
                     </a>
                     {% endif %}
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="product-details-container mb-5 mt-md-5">
-                    {% if request.user.is_superuser %}
-                    <p class="">
-                        <a href="{% url 'edit_event' event.id %}">Edit</a> | 
-                        <a class="text-danger" href="{% url 'delete_event' event.id %}">Delete</a>
-                    </p>
-                    {% endif %}
-                    <p class="mb-0">{{ event.name }}</p>
-                    <p class="lead mb-0 text-left font-weight-bold">£{{ event.price }}</p>
-                    <p class="mt-3">{{ event.description }}</p>
-                    <form class="form" action="{% url 'add_to_bag' event.id %}" method="POST">
-                        {% csrf_token %}
-                        <div class="form-row">
-                            <div class="col-12">
-                                <p class="mt-3"><strong>Quantity:</strong></p>
-                                <div class="form-group w-50">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <button class="decrement-qty btn btn-black rounded-0" 
-                                                data-item_id="{{ event.id }}" id="decrement-qty_{{ event.id }}">
-                                                <span class="icon">
-                                                    <i class="fas fa-minus"></i>
-                                                </span>
-                                            </button>
-                                        </div>
-                                        <input class="form-control qty_input" type="number"
-                                            name="quantity" value="1" min="1" max="99"
-                                            data-item_id="{{ event.id }}"
-                                            id="id_qty_{{ event.id }}">
-                                        <div class="input-group-append">
-                                            <button class="increment-qty btn btn-black rounded-0"
-                                                data-item_id="{{ event.id }}" id="increment-qty_{{ event.id }}">
-                                                <span class="icon">
-                                                    <i class="fas fa-plus"></i>
-                                                </span>
-                                            </button>
+                    <section class="buy-ticket-card">
+                        <form class="form" action="{% url 'add_to_bag' event.id %}" method="POST">
+                            {% csrf_token %}
+                            <div class="form-row">
+                                <div class="col-12">
+                                    <p class="mt-3"><strong>Quantity:</strong></p>
+                                    <div class="form-group w-50">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <button class="decrement-qty btn btn-black rounded-0" 
+                                                    data-item_id="{{ event.id }}" id="decrement-qty_{{ event.id }}">
+                                                    <span class="icon">
+                                                        <i class="fas fa-minus"></i>
+                                                    </span>
+                                                </button>
+                                            </div>
+                                            <input class="form-control qty_input" type="number"
+                                                name="quantity" value="1" min="1" max="99"
+                                                data-item_id="{{ event.id }}"
+                                                id="id_qty_{{ event.id }}">
+                                            <div class="input-group-append">
+                                                <button class="increment-qty btn btn-black rounded-0"
+                                                    data-item_id="{{ event.id }}" id="increment-qty_{{ event.id }}">
+                                                    <span class="icon">
+                                                        <i class="fas fa-plus"></i>
+                                                    </span>
+                                                </button>
+                                                <input type="submit" class="btn btn-black rounded-0 mt-5" value="Add to Bag">
+                                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="col-12">
-                                <a href="{% url 'events' %}" class="btn rounded-0 mt-5">
-                                    <span class="icon">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </span>
-                                    <span class="">Back to Events</span>
-                                </a>
-                                <input type="submit" class="btn btn-black rounded-0 mt-5" value="Add to Bag">
-                            </div>
-                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                        </div>
-                    </form>
+                        </form>
+                    </section>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="mb-5 mt-md-5 pt-5">
+                    <h2 class="logo-font">{{ event.name }}</h2>
+                    <h5 class="logo-font text-grey">Location:</h5>
+                    <p class="mt-3">{{ event.location_name }}, {{ event.location_postcode }}</p>
+                    <h5 class="logo-font text-grey">Date & Time:</h5>
+                    <p class="mt-3">{{ event.starts }} - {{ event.ends }}</p>
+                    <h5 class="logo-font text-grey">About:</h5>
+                    <p class="mt-3 text-justify">{{ event.description }}</p>
+                    <h5 class="logo-font text-grey">Ticket Price:</h5>
+                    <p class="lead">£{{ event.price }}</p>
+                    <h5 class="logo-font text-grey">Ticket Availability:</h5>
+                    <p class="">out of {{ event.available_tickets }}</p>
                 </div>
             </div>
         </div>

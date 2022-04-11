@@ -10,8 +10,10 @@ class EventForm(forms.ModelForm):
         fields = '__all__'
 
     image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
+    # using attrs to send type:datetime-local for HTML5 datetime picker
     starts = forms.DateTimeField(widget=forms.TextInput(attrs={'type': 'datetime-local'}))
     ends = forms.DateTimeField(widget=forms.TextInput(attrs={'type': 'datetime-local'}))
+    ticket_stock = forms.IntegerField(widget=forms.TextInput(attrs={"readonly": "readonly"}))
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
