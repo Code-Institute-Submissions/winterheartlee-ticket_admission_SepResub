@@ -112,7 +112,11 @@ body {
 }
 
 .curved-corners {
-    border-radius: 3rem;
+    border-radius: 1rem;
+}
+
+.card-deck {
+    height: 30vh;
 }
 
 .btn-grey {
@@ -160,7 +164,7 @@ body {
 }
 
 .footer-box {
-    background-color: #555;
+    background-color: black;
     font-family: 'Raleway', sans-serif;
     color: white;
 }
@@ -176,11 +180,11 @@ body {
 
 .buy-ticket-card {
     
-    background-color: #2FC9FF;
+    background-color: white;
     border-left: 1px solid #555;
     border-right: 1px solid #555;
     border-bottom: 1px solid #555;
-    color: white;
+    color: #555;
     
 }
 
@@ -205,6 +209,10 @@ body {
 
 input[name='q']::placeholder {
     color: #aab7c4;
+}
+
+.float-right {
+    float: right;
 }
 
 /* Homepage Tab styling */
