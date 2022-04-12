@@ -15,10 +15,7 @@ class Event(models.Model):
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
     ticket_allocation = models.IntegerField()
-    # ticket_stock = models.IntegerField(blank=True)
     image = models.ImageField(null=True, blank=True)
-    user = models.CharField(max_length=254, blank=True, null=True)
-    # user = models.ForeignKey(User, blank=True, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.user

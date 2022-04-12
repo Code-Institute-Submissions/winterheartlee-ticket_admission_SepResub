@@ -25,11 +25,6 @@ This project was built using Django and Python for the backend control and HTML,
 - Able to buy tickets online with debit or credit card
 - Make sure buyers can't create events.
 
-## Wireframe:
-- Wireframe was created using Balsamiq.
-- [View full wireframe here](static/images/fungi-finders-wireframe.png)
-
-![Wireframe Preview](static/images/wireframe-example.png)
 
 ## Features 
 
@@ -47,17 +42,6 @@ This site currently fullfils the criteria of the above user stories; events can 
 
 Chrome was used to create this website and it is only FULLY currently functioning as should on Chrome; no other browsers have been tested so far. No Django 'tests' have been written to test the functions in the project.
 
-
-### Validator Testing 
-
-- HTML - [W3C Validator](https://validator.w3.org/nu/?doc=http%3A%2F%2Fflask-mushroom-forager-project.herokuapp.com%2F)
-  - The site currently has no errors from the W3C Validator.
-- CSS - [Jigsaw Validator](https://jigsaw.w3.org/css-validator/validator?uri=http%3A%2F%2Fflask-mushroom-forager-project.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
-  - No errors were found with custom CSS however there is an error inside the Materialize Library CSS.
-- Javascript - [Jshint](https://jshint.com/) 
-  - No serious issues were detected when passed through the Jshint validator.
-- Python PEP8 Compliant - [PEP8 Online](http://pep8online.com/) 
-  - No errors detected and is PEP8 compliant.
 
 ### Unfixed Bugs
 
