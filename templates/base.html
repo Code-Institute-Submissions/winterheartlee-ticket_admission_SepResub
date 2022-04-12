@@ -53,7 +53,7 @@
                 </a>
             </div>
             <div class="col-lg-6 my-auto py-1 py-lg-0">
-                <form method="GET" action="{% url 'events' %}">
+                <form method="GET" action="{% url 'my_events' %}">
                     <div class="input-group">
                         <input class="form-control border-grey rounded-2" type="text" size="25" name="q"
                             placeholder="Search events">
@@ -83,14 +83,14 @@
                                 <div class="dropdown-menu border-0" aria-labelledby="user-options">
                                     <a href="{% url 'profile' %}" class="dropdown-item">Profile</a>
                                     <a href="{% url 'add_event' %}" class="dropdown-item">Create Event</a>
-                                    <a href="{% url 'events' %}?sort=starts&direction=asc" class="dropdown-item">Manage Events</a>
+                                    <a href="{% url 'my_events' %}?sort=starts&direction=asc" class="dropdown-item">Manage Events</a>
                                     <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
                                 </div>
                             </li>
                             {% else %}
                             <li class="nav-item">
-                                <a class="nav-link text-grey ml-4" href="{% url 'account_login' %}" id="login-link">
-                                    Login <i class="fas fa-user-circle"></i>
+                                <a class="nav-link ml-4" href="{% url 'account_login' %}" id="login-link">
+                                    <span class="text-grey">Login </span><i class="fas fa-user-circle text-grey"></i>
                                 </a>
                             </li>
                             {% endif %}
@@ -127,7 +127,7 @@
                     </div>
                 </a>
                 <div class="dropdown-menu border-0 w-100 p-3 rounded-0 my-0 text-grey" aria-labelledby="mobile-search">
-                    <form class="form" method="GET" action="{% url 'events' %}">
+                    <form class="form" method="GET" action="{% url 'my_events' %}">
                         <div class="input-group w-100">
                             <input class="form-control border-grey rounded-2" type="text" name="q"
                                 placeholder="Search events">
@@ -156,10 +156,10 @@
                     {% endif %}
                     <a href="{% url 'profile' %}" class="dropdown-item">Profile</a>
                     <a href="{% url 'add_event' %}" class="dropdown-item">Create Event</a>
-                    <a href="{% url 'events' %}" class="dropdown-item">Manage Events</a>
+                    <a href="{% url 'my_events' %}" class="dropdown-item">Manage Events</a>
                     <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
                     {% else %}
-                    <a class="nav-link ml-4" href="{% url 'account_login' %}" id="login-link">
+                    <a class="nav-link ml-4 text-grey" href="{% url 'account_login' %}" id="login-link">
                         Login
                     </a>
                     {% endif %}

@@ -1,134 +1,59 @@
-<!-- Extends from root TICKET_ADMISSION base.html template -->
-{% extends "base.html" %}
+<!doctype html>
+<html lang="en">
 
-{% load static %}
+<head>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-{% block content %}
-<section>
-  <div class="container-fluid callout-container">
-    <!-- Tab links -->
-    <div class="container container-100vh mt-5">
-      <div class="tab text-center">
-        <button class="tablinks" onclick="openTab(event, 'Welcome')" id="defaultOpen"><strong>Welcome</strong></button>
-        <button class="tablinks" onclick="openTab(event, 'Features')"><strong>Features</strong></button>
-        <button class="tablinks" onclick="openTab(event, 'Pricing')"><strong>Pricing</strong></button>
-      </div>
-      <!-- Tab content -->
-      <div id="Welcome" class="tabcontent row ">
-        <div class="col-7 col-md-6 my-auto centered-element">
-          <h1 class="display-4 callout-text">
-            Sell your tickets with low fees and instant payment
-          </h1>
-          <div class="my-5">
-            <h4>
-              <a href="{% url 'account_signup' %}" class="register-button btn btn-lg rounded-2 py-3">
-                <h4>Register</h4>
-              </a>
-            </h4>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="/static/css/base.css">
+
+  <!-- Separate Font Awesome, JQuery, Popper and Bootstrap JS -->
+  <script src="https://kit.fontawesome.com/913b585bc7.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+  </script>
+
+  <title>TicketSpark | Welcome</title>
+</head>
+
+<body>
+  <section>
+    <div class="container-fluid welcome-container">
+      <div class="container container-wrapper--white curved-corners">
+        <div class="row text-center">
+          <div class="col-12">
+            <h1 class="logo-font my-5 display-1"><i class="fa-solid fa-bolt"> </i> TicketSpark</h1>
+          </div>
+        </div>
+        <div class="row text-center">
+          <div class="col-6 pr-0">
+            <h1 class="logo-font text-grey mb-5">
+              Buy Tickets
+            </h1>
+            <a href="{% url 'buyer_homepage' %}">
+              <img src="/media/buy_tickets.jpeg" alt="Buy tickets" class="welcome-images">
+            </a>
+          </div>
+          <div class="col-6 pl-0">
+            <h1 class="logo-font text-grey mb-5">
+              Sell Tickets
+            </h1>
+            <a href="{% url 'creator_homepage' %}">
+              <img src="/media/sell_tickets.jpg" alt="Sell tickets" class="welcome-images">
+            </a>
           </div>
         </div>
       </div>
-
-      <div id="Features" class="tabcontent row">
-          <div class="container">
-            <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-              <h1 class="display-4">Features</h1>
-              <p class="lead">PUT FEATURES HERE</p>
-            </div>
-          </div>
-      </div>
-
-      <div id="Pricing" class="tabcontent row">
-          <div class="container">
-            <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-              <h1 class="display-4">Pricing</h1>
-              <p class="lead">Quickly build an effective pricing table for your potential customers with this Bootstrap
-                example.
-                It's built with default Bootstrap components and utilities with little customization.</p>
-            </div>
-      
-            <div class="container">
-              <div class="card-deck mb-3 text-center">
-                <div class="card mb-4 shadow-sm">
-                  <div class="card-header">
-                    <h4 class="my-0 font-weight-normal">Free</h4>
-                  </div>
-                  <div class="card-body">
-                    <h1 class="card-title pricing-card-title">$0 <small class="text-muted">/ mo</small></h1>
-                    <ul class="list-unstyled mt-3 mb-4">
-                      <li>10 users included</li>
-                      <li>2 GB of storage</li>
-                      <li>Email support</li>
-                      <li>Help center access</li>
-                    </ul>
-                    <button type="button" class="btn btn-lg btn-block btn-outline-primary">Sign up for free</button>
-                  </div>
-                </div>
-                <div class="card mb-4 shadow-sm">
-                  <div class="card-header">
-                    <h4 class="my-0 font-weight-normal">Pro</h4>
-                  </div>
-                  <div class="card-body">
-                    <h1 class="card-title pricing-card-title">$15 <small class="text-muted">/ mo</small></h1>
-                    <ul class="list-unstyled mt-3 mb-4">
-                      <li>20 users included</li>
-                      <li>10 GB of storage</li>
-                      <li>Priority email support</li>
-                      <li>Help center access</li>
-                    </ul>
-                    <button type="button" class="btn btn-lg btn-block btn-primary">Get started</button>
-                  </div>
-                </div>
-                <div class="card mb-4 shadow-sm">
-                  <div class="card-header">
-                    <h4 class="my-0 font-weight-normal">Enterprise</h4>
-                  </div>
-                  <div class="card-body">
-                    <h1 class="card-title pricing-card-title">$29 <small class="text-muted">/ mo</small></h1>
-                    <ul class="list-unstyled mt-3 mb-4">
-                      <li>30 users included</li>
-                      <li>15 GB of storage</li>
-                      <li>Phone and email support</li>
-                      <li>Help center access</li>
-                    </ul>
-                    <button type="button" class="btn btn-lg btn-block btn-primary">Contact us</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-      </div>
     </div>
-  </div>
-</section>
-{% endblock %}
-
-{% block postloadjs %}
-{{ block.super }}
-<!-- Tab JS -->
-<script type="text/javascript">
-  function openTab(evt, tabName) {
-    // Declare all variables
-    var i, tabcontent, tablinks;
-
-    // Get all elements with class="tabcontent" and hide them
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-    }
-
-    // Get all elements with class="tablinks" and remove the class "active"
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-
-    // Show the current tab, and add an "active" class to the button that opened the tab
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " active";
-  }
-
-  document.getElementById("defaultOpen").click();
-</script>
-
-{% endblock %}
+  </section>
+</body>

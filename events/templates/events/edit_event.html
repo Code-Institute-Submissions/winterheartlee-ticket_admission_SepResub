@@ -17,6 +17,7 @@
                 <form method="POST" action="{% url 'edit_event' event.id %}" class="form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ form.name | as_crispy_field }}
+                    {{ form.user }}
                     <div class="row">
                         <div class="col">
                             {{ form.starts | as_crispy_field }}
@@ -39,18 +40,14 @@
                             {{ form.price | as_crispy_field }}
                         </div>
                         <div class="col">
-                            {{ form.ticket_allocation | as_crispy_field }}
-                        </div>
-                        <div class="col">
-                            {{ form.ticket_stock | as_crispy_field }}
                         </div>
                     </div>
                     <div class="mt-4">
                         {{ form.image }}
                     </div>
                     <div class="text-right">
-                        <a class="btn btn-grey rounded-3" href="{% url 'events' %}">Cancel</a>
-                        <button class="btn btn-orange rounded-3" type="submit">Add Event</button>
+                        <a class="btn btn-grey rounded-3" href="{% url 'my_events' %}">Cancel</a>
+                        <button class="btn btn-orange rounded-3" type="submit" id="add-event">Add Event</button>
                     </div>
                 </form>
             </div>            
@@ -64,6 +61,15 @@
         $('#new-image').change(function() {
             var file = $('#new-image')[0].files[0];
             $('#filename').text(`Image will be set to: ${file.name}`);
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(function () {
+            $('#add-event').on('click', function () {
+                var text = $('#user');
+                text.val('{{ request.user }}');    
+            });
         });
     </script>
 {% endblock %}

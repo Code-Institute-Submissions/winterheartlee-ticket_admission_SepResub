@@ -1,0 +1,43 @@
+<!-- Extends from root TICKET_ADMISSION base.html template -->
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+<section>
+  <div class="container-fluid callout-container-buyer">
+    <div class="container container-100vh mt-5">
+      <div class="row">
+        <div class="col-10 col-md-6 my-auto centered-element">
+          <h1 class="display-4 callout-text">
+            A simple way to buy tickets for your favourite events...
+          </h1>
+          <div class="row my-5">
+            <div class="col-sm-12 col-md-12 col-lg-6 col-xl-4">
+              <h4>
+                <a href="{% url 'all_events' %}" class="view-events-button btn btn-lg rounded-2 py-3">
+                  <h4>View Events</h4>
+                </a>
+              </h4>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-6 col-xl-4">
+              <h4>
+                <a href="{% url 'account_signup' %}" class="register-button btn btn-lg rounded-2 py-3">
+                  <h4>Register</h4>
+                </a>
+              </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script type="text/javascript">
+</script>
+
+{% endblock %}
