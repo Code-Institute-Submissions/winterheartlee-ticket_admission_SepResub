@@ -20,10 +20,10 @@
                     {{ form.user }}
                     <div class="row">
                         <div class="col">
-                            {{ form.starts }}
+                            {{ form.starts | as_crispy_field }}
                         </div>
                         <div class="col">
-                            {{ form.ends }}
+                            {{ form.ends | as_crispy_field }}
                         </div>
                     </div>
                     <div class="row">
