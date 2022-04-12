@@ -1,108 +1,99 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# TicketSpark - Event Creation & Ticketing System
 
-Welcome winterheartlee,
+TicketSpark is a Django-built website that is focused on providing event organisers with a simple e-ticketing system for users to buy tickets with a credit/debit card using the Stripe platform. Event creators can create, modify and delete event information and a clear separation has been implemented into the design so that the 'ticket purchasers' and 'event creators' have different registration information that allows them access appropriate navigation and database information. The focus on this site currently is for the Event creators as it is intended that event links will be directed to a buy now page for each event from the creators own website.
+<br>
+This project was built using Django and Python for the backend control and HTML, CSS & Javascript for the front end.
+<br>
+<br>
+### <b>IMPORTANT NOTE: The events currently setup on the deployed heroku site are not real events and have simply been used to fill out the website content and demonstate its features.</b>
+<br>
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+![Screenshot of creator homepage](media/readme_images/homepage_example.png)
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+## User Stories:
+### Event Creators:
+- Register as an event creator
+- Create, modify and delete events
+- Search for events
+- Populate a 'My Events' page for each creator for easy access to management.
+- Make sure 'creators' can't buy tickets; keep these two identities separated.
+### Ticket Purchasers:
+- Register to buy tickets
+- See list of all events
+- Search for events
+- Have user profile with order history
+- Able to buy tickets online with debit or credit card
+- Make sure buyers can't create events.
 
-## Gitpod Reminders
+## Wireframe:
+- Wireframe was created using Balsamiq.
+- [View full wireframe here](static/images/fungi-finders-wireframe.png)
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+![Wireframe Preview](static/images/wireframe-example.png)
 
-`python3 -m http.server`
+## Features 
 
-A blue button should appear to click: _Make Public_,
+This site currently fullfils the criteria of the above user stories; events can be created and tickets purchased for said event. At this stage, the Event model currently has 'Event Name', 'Description', 'Start Date & Time', 'End Date & Time', 'Venue Name', 'Location Postcode', 'Ticket Price' and 'Ticket Allocation'.
 
-Another blue button should appear to click: _Open Browser_.
+### Features Left to Implement:
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+- Tickets sold need to be deducted from the 'Ticket Allocation' so no more tickets can be purchased beyond the allocated amount.
+- Currently using a custom form to overide the Allauth signup page to include a 'type' choice of 'creator' or 'buyer', however I could not figure out how to add new fields to the aullauth models and therefore I used the currently existing 'first_name' field that isn't being used; this does the job for now but is not intended to be a final fix.
+- Being able to filter and sort the 'all_events' and 'my event' pages would help the user around a potential large quantity of events.
+- Mobile responsiveness has been considered for most of the site however there are still a few issues with large font sizes overlappying graphical elements.
 
-A blue button should appear to click: _Make Public_,
 
-Another blue button should appear to click: _Open Browser_.
+## Testing 
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+Chrome was used to create this website and it is only FULLY currently functioning as should on Chrome; no other browsers have been tested so far. No Django 'tests' have been written to test the functions in the project.
 
-To log into the Heroku toolbelt CLI:
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+### Validator Testing 
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+- HTML - [W3C Validator](https://validator.w3.org/nu/?doc=http%3A%2F%2Fflask-mushroom-forager-project.herokuapp.com%2F)
+  - The site currently has no errors from the W3C Validator.
+- CSS - [Jigsaw Validator](https://jigsaw.w3.org/css-validator/validator?uri=http%3A%2F%2Fflask-mushroom-forager-project.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+  - No errors were found with custom CSS however there is an error inside the Materialize Library CSS.
+- Javascript - [Jshint](https://jshint.com/) 
+  - No serious issues were detected when passed through the Jshint validator.
+- Python PEP8 Compliant - [PEP8 Online](http://pep8online.com/) 
+  - No errors detected and is PEP8 compliant.
 
-------
+### Unfixed Bugs
 
-## Release History
+- after registering, logging in, logging out etc, the page gets redirected to the main index page, not the homepage of the user role.
+- When the edit_event page is called, the 'Start Date and Time' and "End Date and Time' database entries are not being populated and have to be selected again.
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+## Deployment
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+This site has been deployed using Heroku, the live link can be found here - https://ticketspark.herokuapp.com/com/
+The Static files and Media files have been collected and stored with Amazon Web Services.
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+## Credits 
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+- The programming languages used were HTML5, CSS3, Python and Javascript.
+- The Code Institute 'Boutique Ado' walkthrough was followed through carefully and applied to my needs for this project for many of the features; particularly the Stripe payment code.
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+### Frameworks, Libraries and Programs:
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+1. [Bootstrap 4:](https://getbootstrap.com/docs/4.0/getting-started/introduction/)
+    - Bootstrap 4 was used for its grid system and easy to use style classes.
+1. [Google Fonts:](https://fonts.google.com/)
+    - Google fonts were used to import the 'Raleway' font that was used through the site.
+1. [Font Awesome:](https://fontawesome.com/)
+    - icons loaded from Font Awesome.
+1. [GitPod](https://www.gitpod.io/)
+    - GitPod was the IDE used to create the code.
+1. [GitHub:](https://github.com/)
+    - GitHub is used to store the projects code after being pushed from GitPod.
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+### Media:
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
+- Creator homepage image was downloaded from [Pexels](https://www.pexels.com/photo/man-performing-on-stage-1916821/)
+- Ticker purchaser homepage image was downloaded from [Pexels](https://www.pexels.com/photo/crown-raising-hands-during-performance-1652353/)
+- Index buy tickets image was downloaded from [Pexels](https://www.pexels.com/photo/back-of-man-raising-hands-inside-room-full-of-people-with-purple-lights-1267350/)
+- Index sell tickets image was downloaded from [Pexels](https://www.pexels.com/photo/photo-of-concert-band-during-night-time-167605/)
