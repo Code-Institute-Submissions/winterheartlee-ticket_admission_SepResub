@@ -79,7 +79,7 @@ def my_event_detail(request, event_id):
 def add_event(request):
     """ Create an event """
     user = request.user
-    if not request.user.is_superuser:
+    if not request.user.first_name == "creator":
             messages.error(request, 'Sorry, only event creators can do that.')
             return redirect(reverse('home'))
 
@@ -105,7 +105,7 @@ def add_event(request):
 @login_required
 def edit_event(request, event_id):
     """ Edit an event """
-    if not request.user.is_superuser:
+    if not request.user.first_name == "creator":
             messages.error(request, 'Sorry, only event creators can do that.')
             return redirect(reverse('home'))
 
@@ -134,7 +134,7 @@ def edit_event(request, event_id):
 @login_required
 def delete_event(request, event_id):
     """ Delete an event """
-    if not request.user.is_superuser:
+    if not request.user.first_name == "creator":
             messages.error(request, 'Sorry, only event creators can do that.')
             return redirect(reverse('home'))
    

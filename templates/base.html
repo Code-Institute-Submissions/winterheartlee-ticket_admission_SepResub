@@ -47,15 +47,15 @@
     <header class="container-fluid">
         <!-- Desktop Nav -->
         <div id="topnavbar" class="row bg-white p-lg-4 d-none d-lg-flex">
-            <div class="col-lg-3">
+            <div class="col-lg-4">
                 <a href="{% url 'home' %}" class="nav-link">
                     <h2 class="logo-font my-0"><i class="fa-solid fa-bolt"> </i> TicketSpark</h2>
                 </a>
             </div>
-            <div class="col-lg-6 my-auto py-1 py-lg-0">
-                <form method="GET" action="{% url 'my_events' %}">
+            <div class="col-lg-4 my-auto py-1 py-lg-0">
+                <form method="GET" action="{% url 'all_events' %}">
                     <div class="input-group">
-                        <input class="form-control border-grey rounded-2" type="text" size="25" name="q"
+                        <input class="form-control border-grey rounded-3" type="text" size="25" name="q"
                             placeholder="Search events">
                         <div class="input-group-append">
                             <button class="form-control btn btn-grey border border-grey rounded-2" type="submit">
@@ -67,7 +67,7 @@
                     </div>
                 </form>
             </div>
-            <div class="col-lg-3 my-auto py-1 py-lg-0">
+            <div class="col-lg-4 my-auto py-1 py-lg-0">
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav"
                         aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -81,9 +81,12 @@
                                     <span class="text-grey">My Account </span><i class="fas fa-user-circle text-grey"></i>
                                 </a>
                                 <div class="dropdown-menu border-0" aria-labelledby="user-options">
-                                    <a href="{% url 'profile' %}" class="dropdown-item">Profile</a>
+                                    {% if request.user.first_name == "buyer" %}
+                                        <a href="{% url 'profile' %}" class="dropdown-item">Profile</a>
+                                    {% else %}
                                     <a href="{% url 'add_event' %}" class="dropdown-item">Create Event</a>
                                     <a href="{% url 'my_events' %}?sort=starts&direction=asc" class="dropdown-item">Manage Events</a>
+                                    {% endif %}
                                     <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
                                 </div>
                             </li>
@@ -98,9 +101,9 @@
                             <li class="list-inline-item">
                                 <a class="{% if grand_total %}font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'view_bag' %}">
                                     <div class="text-center">
-                                        <p class="my-0">
+                                        <p class="my-0 text-orange">
                                             {% if grand_total %}
-                                                £{{ grand_total|floatformat:2 }}
+                                                £{{ grand_total|floatformat:2 }} <i class="fas fa-shopping-basket text-grey"></i>
                                             {% else %}
                                             {% endif %}
                                         </p>
@@ -122,12 +125,12 @@
             <li class="list-inline-item" style="float: right;">
                 <a class="nav-link text-grey" href="#" id="mobile-search" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
-                    <div class="my-2 mr-2 ml-4">
+                    <div class="my-2 mr-2 ml-2">
                         <h4><i class="fas fa-search"></i></h4>
                     </div>
                 </a>
                 <div class="dropdown-menu border-0 w-100 p-3 rounded-0 my-0 text-grey" aria-labelledby="mobile-search">
-                    <form class="form" method="GET" action="{% url 'my_events' %}">
+                    <form class="form" method="GET" action="{% url 'all_events' %}">
                         <div class="input-group w-100">
                             <input class="form-control border-grey rounded-2" type="text" name="q"
                                 placeholder="Search events">
@@ -150,26 +153,27 @@
                         <h4><i class="fas fa-user-circle text-grey"></i></h4>
                     </div>
                 </a>
+                {% if request.user.is_authenticated %}
                 <div class="dropdown-menu border-0" aria-labelledby="user-options">
-                    {% if request.user.is_authenticated %}
-                    {% if request.user.is_superuser %}
-                    {% endif %}
+                    {% if request.user.first_name == "buyer" %}
                     <a href="{% url 'profile' %}" class="dropdown-item">Profile</a>
+                    {% else %}
                     <a href="{% url 'add_event' %}" class="dropdown-item">Create Event</a>
                     <a href="{% url 'my_events' %}" class="dropdown-item">Manage Events</a>
                     <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                    {% else %}
+                    {% endif %}
+                {% else %}    
                     <a class="nav-link ml-4 text-grey" href="{% url 'account_login' %}" id="login-link">
                         Login
                     </a>
-                    {% endif %}
+                {% endif %}
                 </div>
             </li>
             <!-- Shopping Bag -->
             <li class="list-inline-item" style="float: right;">
                 <a class="{% if grand_total %}font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'view_bag' %}">
                     <div class="my-2 ml-2">
-                        <p class="my-0">
+                        <p class="my-0 text-orange">
                             {% if grand_total %}
                                 £{{ grand_total|floatformat:2 }}
                             {% else %}

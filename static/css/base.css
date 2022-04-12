@@ -136,16 +136,23 @@ body {
 .btn-grey:hover,
 .btn-grey:active,
 .btn-grey:focus {
-    background: #2FC9FF;
-    color: black;
+    background: white;
+    color: #FF652F;
 }
 
-.text-black {
-    color: #000 !important;
+.view-events-button:hover,
+.view-events-button:active,
+.view-events-button:focus {
+    background: white;
+    color: #2FC9FF;
 }
 
 .text-grey {
     color: #555;
+}
+
+.text-orange {
+    color: #FF652F;
 }
 
 .border-grey {
@@ -153,8 +160,9 @@ body {
 }
 
 .footer-box {
-    background-color: #272727;
+    background-color: #555;
     font-family: 'Raleway', sans-serif;
+    color: white;
 }
 
 .card-img-top {
@@ -180,12 +188,14 @@ body {
     width: 100%;
     height: 20vh;
     object-fit: cover;
+    border: 1px solid #555;
 }
 
 .checkout-image {
     width: 100%;
     height: 7vh;
     object-fit: cover;
+    border: 1px solid #555;
 }
 
 .update-link,
@@ -254,8 +264,8 @@ input[name='q']::placeholder {
 
 .message-container {
     position: fixed;
-    top: 72px;
-    right: 15px;
+    top: 80px;
+    right: 30px;
     z-index: 99999999999;
 }
 

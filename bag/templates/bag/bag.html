@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col">
                 <hr>
-                <h2 class="logo-font mb-4">Your Order</h2>
+                <h2 class="logo-font text-grey text-center mb-4">Your Order</h2>
                 <hr>
             </div>
         </div>
@@ -55,9 +55,9 @@
                 </div>
                 <div class="table-responsive rounded d-none d-md-block">
                     <table class="table table-sm table-borderless">
-                        <thead class="text-black">
+                        <thead class="text-grey">
                             <tr>
-                                <th scope="col"></th>
+                                <th scope="col">Event</th>
                                 <th scope="col"></th>
                                 <th scope="col">Price</th>
                                 <th scope="col">Qty</th>
@@ -67,19 +67,20 @@
 
                         {% for item in bag_items %}
                             <tr>
-                                <td class="p-3 w-25">
+                                <td class="p-3 w-50">
+                                    {% include "bag/event-info.html" %}
                                     {% include "bag/event-image.html" %}
                                 </td>
                                 <td class="py-3">
-                                    {% include "bag/event-info.html" %}
+                                    
                                 </td>
-                                <td class="py-3">
+                                <td class="py-3 w-10">
                                     <p class="my-0">£{{ item.event.price }}</p>
                                 </td>
-                                <td class="py-3 w-25">
+                                <td class="py-3 w-10">
                                     {% include "bag/quantity-form.html" %}
                                 </td>
-                                <td class="py-3">
+                                <td class="py-3 w-30">
                                     <p class="my-0">£{{ item.event.price | calc_subtotal:item.quantity }}</p>
                                 </td>
                             </tr>
@@ -97,12 +98,12 @@
                     </table>
                 </div>
                 {% else %}
-                <p class="lead mb-5">You have no tickets.</p>
-                <a href="{% url 'events' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                <p class="mb-5">You have no tickets.</p>
+                <a href="{% url 'all_events' %}" class="btn rounded-0 btn-lg">
                     <span class="icon">
-                        <i class="fas fa-chevron-left"></i>
+                        <i class="fas fa-chevron-left text-grey"></i>
                     </span>
-                    <span class="">Go Back</span>
+                    <span class="text-grey">Go Back</span>
                 </a>
                 {% endif %}
             </div>

@@ -38,7 +38,7 @@
                                     </div>
                                 </div>
                             </div>
-                            {% if request.user.is_superuser %}
+                            {% if request.user.first_name == "creator" %}
                             <div>
                                 <small class="ml-3">
                                     <a href="{% url 'edit_event' event.id %}">Edit</a> | 

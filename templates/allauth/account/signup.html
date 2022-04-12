@@ -13,7 +13,13 @@
 
 <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
   {% csrf_token %}
-  {{ form|crispy }}
+  {% for field in form %}
+    {% if field.name != 'first_name' %}
+        {{ field | as_crispy_field }}
+    {% else %}
+        <h5>I want to...</h5>{{ form.first_name | as_crispy_field }}
+    {% endif %}
+  {% endfor %}
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}

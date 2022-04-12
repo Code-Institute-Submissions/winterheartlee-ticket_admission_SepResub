@@ -21,14 +21,14 @@
                         <form class="form" action="{% url 'add_to_bag' event.id %}" method="POST">
                             {% csrf_token %}
                             <div class="row">
-                                <div class="col">
+                                <div class="col-sm-12 col-md-12 col-lg-3">
                                     <h5>Quantity:</h5>
                                 </div>
-                                <div class="col">
+                                <div class="col-sm-12 col-md-12 col-lg-9 ml-3">
                                     <div class="form-group">
-                                        <div class="input-group">
+                                        <div class="input-group row">
                                             <div class="input-group-prepend">
-                                                <button class="decrement-qty btn btn-grey rounded-3" 
+                                                <button class="decrement-qty btn btn-grey rounded-0" 
                                                     data-item_id="{{ event.id }}" id="decrement-qty_{{ event.id }}">
                                                     <span class="icon">
                                                         <i class="fas fa-minus"></i>
@@ -36,20 +36,20 @@
                                                 </button>
                                             </div>
                                             <div>
-                                                <input class="form-control qty_input rounded-3" type="number"
+                                                <input class="form-control qty_input rounded-0" type="number"
                                                     name="quantity" value="1" min="1" max="99"
                                                     data-item_id="{{ event.id }}"
                                                     id="id_qty_{{ event.id }}">
                                             </div>
                                             <div class="input-group-append">
-                                                <button class="increment-qty btn btn-grey rounded-3"
+                                                <button class="increment-qty btn btn-grey rounded-0"
                                                     data-item_id="{{ event.id }}" id="increment-qty_{{ event.id }}">
                                                     <span class="icon">
                                                         <i class="fas fa-plus"></i>
                                                     </span>
                                                 </button>
                                             </div>
-                                            <div>    
+                                            <div class="ml-4">    
                                                 <input type="submit" class="btn btn-orange rounded-3" value="Add to Bag">
                                                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
                                             </div>
