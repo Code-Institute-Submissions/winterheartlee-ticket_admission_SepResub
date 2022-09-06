@@ -99,7 +99,7 @@
                             {% endif %}
                             <!-- Shopping Bag -->
                             <li class="list-inline-item">
-                                <a class="{% if grand_total %}font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'view_bag' %}">
+                                <a class="font-weight-bold text-black nav-link" href="{% url 'view_bag' %}">
                                     <div class="text-center">
                                         <p class="my-0 text-orange">
                                             {% if grand_total %}
@@ -154,24 +154,26 @@
                     </div>
                 </a>
                 {% if request.user.is_authenticated %}
-                <div class="dropdown-menu border-0" aria-labelledby="user-options">
-                    {% if request.user.first_name == "buyer" %}
-                    <a href="{% url 'profile' %}" class="dropdown-item">Profile</a>
-                    {% else %}
-                    <a href="{% url 'add_event' %}" class="dropdown-item">Create Event</a>
-                    <a href="{% url 'my_events' %}" class="dropdown-item">Manage Events</a>
-                    <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                    {% endif %}
-                {% else %}    
-                    <a class="nav-link ml-4 text-grey" href="{% url 'account_login' %}" id="login-link">
-                        Login
-                    </a>
+                    <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                        {% if request.user.first_name == "buyer" %}
+                        <a href="{% url 'profile' %}" class="dropdown-item">Profile</a>
+                        {% else %}
+                        <a href="{% url 'add_event' %}" class="dropdown-item">Create Event</a>
+                        <a href="{% url 'my_events' %}" class="dropdown-item">Manage Events</a>
+                        <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                        {% endif %}
+                    </div>
+                {% else %}   
+                    <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                        <a class="nav-link ml-4 text-grey" href="{% url 'account_login' %}" id="login-link">
+                            Login
+                        </a>
+                    </div>
                 {% endif %}
-                </div>
             </li>
             <!-- Shopping Bag -->
             <li class="list-inline-item" style="float: right;">
-                <a class="{% if grand_total %}font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'view_bag' %}">
+                <a class="font-weight-bold text-black nav-link" href="{% url 'view_bag' %}">
                     <div class="my-2 ml-2">
                         <p class="my-0 text-orange">
                             {% if grand_total %}
