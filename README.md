@@ -51,7 +51,7 @@ Chrome was used to create this website and it is only FULLY currently functionin
 
 ## Deployment
 
-This site has been deployed using Heroku, the live link can be found here - https://ticketspark.herokuapp.com/com/
+This site has been deployed using Heroku, the live link can be found here - https://ticketspark.herokuapp.com
 The Static files and Media files have been collected and stored with Amazon Web Services.
 
 
@@ -59,6 +59,7 @@ The Static files and Media files have been collected and stored with Amazon Web 
 
 - The programming languages used were HTML5, CSS3, Python and Javascript.
 - The Code Institute 'Boutique Ado' walkthrough was followed through carefully and applied to my needs for this project for many of the features; particularly the Stripe payment code.
+- Recommended fix for HTML5 'datetime-local' failing validation when creating/editing events was found on Stack Overflow by user 'CoffeeBasedLifeform' here: https://stackoverflow.com/questions/53180600/django-datetime-not-validating-right/53194594#53194594
 
 ### Frameworks, Libraries and Programs:
 
