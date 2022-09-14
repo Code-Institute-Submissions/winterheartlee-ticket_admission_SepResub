@@ -40,6 +40,7 @@
                             {{ form.price | as_crispy_field }}
                         </div>
                         <div class="col">
+                            {{ form.ticket_allocation | as_crispy_field }}
                         </div>
                     </div>
                     <div class="mt-4">
@@ -47,7 +48,7 @@
                     </div>
                     <div class="text-right">
                         <a class="btn btn-grey rounded-3" href="{% url 'my_events' %}">Cancel</a>
-                        <button class="btn btn-orange rounded-3" type="submit" id="add-event">Add Event</button>
+                        <button class="btn btn-orange rounded-3" type="submit" id="add-event">Update Event</button>
                     </div>
                 </form>
             </div>            

@@ -18,7 +18,7 @@ def all_events(request):
             query = request.GET['q']
             if not query:
                 messages.error(request, "You didn't enter any search criteria!")
-                return redirect(reverse('events'))
+                return redirect(reverse('all_events'))
             
             queries = Q(name__icontains=query) | Q(description__icontains=query)
             events = events.filter(queries)
@@ -32,7 +32,7 @@ def all_events(request):
 
 def my_events(request):
     """ A view to return all the events that belong to creators """
-    events = Event.objects.filter(user=request.user).values()
+    events = Event.objects.filter(user=request.user)
     query = None
 
     if request.GET:
@@ -40,7 +40,7 @@ def my_events(request):
             query = request.GET['q']
             if not query:
                 messages.error(request, "You didn't enter any search criteria!")
-                return redirect(reverse('events'))
+                return redirect(reverse('my_events'))
             
             queries = Q(name__icontains=query) | Q(description__icontains=query)
             events = events.filter(queries)
@@ -88,7 +88,7 @@ def add_event(request):
         if form.is_valid():
             event = form.save()
             messages.success(request, 'Successfully created event!')
-            return redirect(reverse('event_detail', args=[event.id]))
+            return redirect(reverse('my_event_detail', args=[event.id]))
         else:
             messages.error(request, 'Failed to create event. Please ensure the form is valid.')
     else:
@@ -115,7 +115,7 @@ def edit_event(request, event_id):
         if form.is_valid():
             form.save()
             messages.success(request, 'Successfully updated event!')
-            return redirect(reverse('event_detail', args=[event.id]))
+            return redirect(reverse('my_event_detail', args=[event.id]))
         else:
             messages.error(request, 'Failed to update event. Please ensure the form is valid.')
     else:
