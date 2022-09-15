@@ -15,7 +15,7 @@
               Buy Tickets
             </h1>
             <a href="{% url 'buyer_homepage' %}">
-              <img src="https://ticketspark.s3.amazonaws.com/media/buy_tickets.jpeg" alt="Buy tickets" class="welcome-images">
+              <img src="{{ MEDIA_URL }}buy_tickets.jpeg" alt="Buy tickets" class="welcome-images">
             </a>
           </div>
           <div class="col-12 col-md-6 pl-0">
@@ -23,7 +23,7 @@
               Sell Tickets
             </h1>
             <a href="{% url 'creator_homepage' %}">
-              <img src="https://ticketspark.s3.amazonaws.com/media/sell_tickets.jpg" alt="Sell tickets" class="welcome-images">
+              <img src="{{ MEDIA_URL }}sell_tickets.jpg" alt="Sell tickets" class="welcome-images">
             </a>
           </div>
         </div>
