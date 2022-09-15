@@ -35,7 +35,12 @@ This site currently fullfils the criteria of the above user stories; events can 
 - Tickets sold need to be deducted from the 'Ticket Allocation' so no more tickets can be purchased beyond the allocated amount.
 - Currently using a custom form to overide the Allauth signup page to include a 'type' choice of 'creator' or 'buyer', however I could not figure out how to add new fields to the aullauth models and therefore I used the currently existing 'first_name' field that isn't being used; this does the job for now but is not intended to be a final fix.
 - Being able to filter and sort the 'all_events' and 'my event' pages would help the user around a potential large quantity of events.
-- Mobile responsiveness has been considered for most of the site however there are still a few issues with large font sizes overlappying graphical elements.
+- Mobile responsiveness has been considered for most of the site however there are still a few issues with large font sizes overlappying graphical elements on the creator homepage tabs.
+- Ticket confirmation emails display the order number but do not show an itemised list of separate purchased tickets.
+
+### Further Advanced Development:
+
+- Advanced ticket analytics would need to be implemented into the creator features to make this site compete with other ticketing services.
 
 
 ## Testing 
@@ -49,15 +54,15 @@ Chrome was used to create this website and it is only FULLY currently functionin
 - CSS - [Jigsaw Validator](https://jigsaw.w3.org/css-validator/)
   - No errors were found with custom CSS; each CSS file was tested separatly through the validator.
 - Javascript - [Jshint](https://jshint.com/) 
-  - No serious issues were detected when passed through the Jshint validator.
+  - No serious issues were detected when passed through the Jshint validator; all js script files and any code between 'script' tags were tested separately through the validator.
 - Python PEP8 Compliant - [PEP8 Online](http://pep8online.com/) 
   - No errors detected and is PEP8 compliant.
 
 
 ### Unfixed Bugs
 
-- after registering, logging in, logging out etc, the page gets redirected to the main index page, not the homepage of the user role.
-- When the edit_event page is called, the 'Start Date and Time' and "End Date and Time' database entries are not being populated and have to be selected again.
+- After registering, logging in, logging out etc, the page gets redirected to the main index page, not the homepage of the user role.
+- Styling for the 'tabs' on the creator homepage is not currently displaying in a satisfactory manner on mobile devices; tablet devices with larger screens work ok.
 
 
 ## Deployment
