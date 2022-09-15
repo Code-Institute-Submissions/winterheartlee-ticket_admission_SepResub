@@ -48,6 +48,8 @@ body {
     align-items: center;
     justify-content: center;
 
+    margin: 0px;
+
     position: relative;
     z-index: 2;
 }
