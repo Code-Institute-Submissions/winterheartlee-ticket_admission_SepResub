@@ -19,8 +19,7 @@ def bag_contents(request):
             'event_id': event_id,
             'quantity': quantity,
             'event': event,
-        })
-    
+        })  
     # Will include option for postal delivery later
     delivery = Decimal(settings.ELECTRONIC_DELIVERY)
 

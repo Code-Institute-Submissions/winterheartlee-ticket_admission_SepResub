@@ -42,6 +42,17 @@ This site currently fullfils the criteria of the above user stories; events can 
 
 Chrome was used to create this website and it is only FULLY currently functioning as should on Chrome; no other browsers have been tested so far. No Django 'tests' have been written to test the functions in the project.
 
+### Validator Testing 
+
+- HTML - [W3C Validator](https://validator.w3.org/nu)
+  - The site currently has no errors from the W3C Validator; each custom html page was tested separately through the validator.
+- CSS - [Jigsaw Validator](https://jigsaw.w3.org/css-validator/)
+  - No errors were found with custom CSS; each CSS file was tested separatly through the validator.
+- Javascript - [Jshint](https://jshint.com/) 
+  - No serious issues were detected when passed through the Jshint validator.
+- Python PEP8 Compliant - [PEP8 Online](http://pep8online.com/) 
+  - No errors detected and is PEP8 compliant.
+
 
 ### Unfixed Bugs
 
@@ -63,6 +74,8 @@ The Static files and Media files have been collected and stored with Amazon Web 
 
 ### Frameworks, Libraries and Programs:
 
+1. [Django Framework:](https://www.djangoproject.com/)
+    - Django was used as the overall framework for this dynamically built website.
 1. [Bootstrap 4:](https://getbootstrap.com/docs/4.0/getting-started/introduction/)
     - Bootstrap 4 was used for its grid system and easy to use style classes.
 1. [Google Fonts:](https://fonts.google.com/)
@@ -73,6 +86,10 @@ The Static files and Media files have been collected and stored with Amazon Web 
     - GitPod was the IDE used to create the code.
 1. [GitHub:](https://github.com/)
     - GitHub is used to store the projects code after being pushed from GitPod.
+1. [Heroku:](https://dashboard.heroku.com/)
+    - Heroku was used to deply the website and the free POSTGRES database feature was used for the CRUD functionality.
+1. [Amazon Web Services:](https://aws.amazon.com/)
+    - AWS was used to store and link the 'static' and 'media' files for the site.
 
 
 
