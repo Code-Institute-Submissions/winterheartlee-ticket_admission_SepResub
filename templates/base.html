@@ -215,9 +215,10 @@
     {% endblock %}
 
     {% block footer %}
-    <footer class="container-fluid footer-box mt-auto">
+    <!-- Desktop Footer -->
+    <footer class="container-fluid footer-box mt-auto d-none d-md-flex">
         <div class="container">
-            <div class="row p-lg-4 d-none d-lg-flex">
+            <div class="row p-lg-4">
                 <div class="col-12 col-md ml-lg-5">
                     <h4>TicketSpark</h4>
                     <small class="d-block mb-3 text-muted">Copyright TicketSpark &copy; 2022</small>
@@ -247,6 +248,24 @@
                         <li><a class="text-muted" href="#"></a></li>
                         <li><a class="text-muted" href="#"></a></li>
                         <li><a class="text-muted" href="#"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Footer -->
+    <footer class="container-fluid footer-box mt-auto d-sm-block d-md-none">
+        <div class="container">
+            <div class="row mt-3">
+                <div class="col-6">
+                    <h6>TicketSpark</h6>
+                    <small class="d-block mb-3 text-muted">Copyright TicketSpark &copy; 2022</small>
+                </div>
+                <div class="col-6">
+                    <h6 class="footer-title ">Contact Us</h6>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" href="#">info@ticketspark.com</a></li>
                     </ul>
                 </div>
             </div>

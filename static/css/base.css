@@ -63,10 +63,9 @@ body {
 }
 
 .welcome-images {
-    height: 60vh;
-    width: 35vw;
+    height: 100%;
+    width: 100%;
     object-fit: cover;
-    margin-bottom: 100px;
     border-radius: 30px;
 }
 
@@ -166,6 +165,7 @@ body {
     background-color: black;
     font-family: 'Raleway', sans-serif;
     color: white;
+    
 }
 
 .card-img-top {

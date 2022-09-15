@@ -7,19 +7,17 @@
 <section>
     <div class="container-fluid welcome-container">
       <div class="container container-wrapper--white curved-corners">
-        <div class="row text-center">
-        </div>
-        <div class="row text-center pt-3">
-          <div class="col-12 col-md-6 pr-0">
-            <h1 class="logo-font text-grey mb-5">
+        <div class="row text-center p-auto m-auto">
+          <div class="col-12 col-xl-6 pt-3 pb-3 mt-3 mb-3">
+            <h1 class="logo-font text-grey">
               Buy Tickets
             </h1>
             <a href="{% url 'buyer_homepage' %}">
               <img src="{{ MEDIA_URL }}buy_tickets.jpeg" alt="Buy tickets" class="welcome-images">
             </a>
           </div>
-          <div class="col-12 col-md-6 pl-0">
-            <h1 class="logo-font text-grey mb-5">
+          <div class="col-12 col-xl-6 pt-3 pb-3 mt-3 mb-3">
+            <h1 class="logo-font text-grey">
               Sell Tickets
             </h1>
             <a href="{% url 'creator_homepage' %}">
