@@ -5,29 +5,32 @@
 
 {% block content %}
 <section>
-    <div class="container-fluid welcome-container">
-      <div class="container container-wrapper--white curved-corners">
-        <div class="row text-center p-auto m-auto">
-          <div class="col-12 col-xl-6 pt-3 pb-3 mt-3 mb-3">
-            <h1 class="logo-font text-grey">
-              Buy Tickets
-            </h1>
-            <a href="{% url 'buyer_homepage' %}">
-              <img src="{{ MEDIA_URL }}buy_tickets.jpeg" alt="Buy tickets" class="welcome-images">
-            </a>
-          </div>
-          <div class="col-12 col-xl-6 pt-3 pb-3 mt-3 mb-3">
-            <h1 class="logo-font text-grey">
-              Sell Tickets
-            </h1>
-            <a href="{% url 'creator_homepage' %}">
-              <img src="{{ MEDIA_URL }}sell_tickets.jpg" alt="Sell tickets" class="welcome-images">
-            </a>
-          </div>
+  <div class="container-fluid welcome-container">
+    <div class="container container-wrapper--white curved-corners">
+      <div class="row text-center p-auto m-auto">
+        <div class="col-12 col-xl-6 pt-3 pb-3 mt-3 mb-3">
+          <h1 class="logo-font text-grey">
+            Buy Tickets
+          </h1>
+          <a href="{% url 'buyer_homepage' %}">
+            <img src="{{ MEDIA_URL }}buy_tickets.jpeg" alt="Buy tickets" class="welcome-images">
+          </a>
+        </div>
+        <div class="col-12 col-xl-6 pt-3 pb-3 mt-3 mb-3">
+          <h1 class="logo-font text-grey">
+            Sell Tickets
+          </h1>
+          <a href="{% url 'creator_homepage' %}">
+            <img src="{{ MEDIA_URL }}sell_tickets.jpg" alt="Sell tickets" class="welcome-images">
+          </a>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+<section>
+  <iframe src="https://8000-winterheartlee-ticketadm-jdu6kfe7e6r.ws-eu64.gitpod.io/blog" title="TicketSpark News" width="100%"></iframe>
+</section>
 {% endblock %}
 
 {% block postloadjs %}
