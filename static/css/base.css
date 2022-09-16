@@ -64,7 +64,7 @@ body {
 }
 
 .welcome-images {
-    height: 100%;
+    height: 400px;
     width: 100%;
     object-fit: cover;
     border-radius: 30px;
@@ -116,6 +116,15 @@ body {
 
 .card-deck {
     height: 30vh;
+}
+
+.blog-cards {
+    background-color: #FF652F;
+    border: none;
+}
+
+.iframe {
+    border: none;
 }
 
 .btn-grey {
