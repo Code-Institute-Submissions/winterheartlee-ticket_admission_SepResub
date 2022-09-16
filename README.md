@@ -47,6 +47,8 @@ This site currently fullfils the criteria of the above user stories; events can 
 
 Chrome was used to create this website and it is only FULLY currently functioning as should on Chrome; no other browsers have been tested so far. No Django 'tests' have been written to test the functions in the project.
 
+A test account was created for a 'buyer' and another for a 'creator'. All aspects of the site functionality was tested on each account; no broken links were discovered and test stripe payments were successful.
+
 ### Validator Testing 
 
 - HTML - [W3C Validator](https://validator.w3.org/nu)
@@ -55,8 +57,6 @@ Chrome was used to create this website and it is only FULLY currently functionin
   - No errors were found with custom CSS; each CSS file was tested separatly through the validator.
 - Javascript - [Jshint](https://jshint.com/) 
   - No serious issues were detected when passed through the Jshint validator; all js script files and any code between 'script' tags were tested separately through the validator.
-- Python PEP8 Compliant - [PEP8 Online](http://pep8online.com/) 
-  - No errors detected and is PEP8 compliant.
 
 
 ### Unfixed Bugs
