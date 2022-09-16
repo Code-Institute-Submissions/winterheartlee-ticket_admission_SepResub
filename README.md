@@ -49,6 +49,11 @@ Chrome was used to create this website and it is only FULLY currently functionin
 
 A test account was created for a 'buyer' and another for a 'creator'. All aspects of the site functionality was tested on each account; no broken links were discovered and test stripe payments were successful.
 
+Test stripe payments can be made using the test card information:
+- Number: 4242 4242 4242 4242 
+- MM/YY: 4242
+- CVC: 424
+
 ### Validator Testing 
 
 - HTML - [W3C Validator](https://validator.w3.org/nu)
@@ -76,6 +81,7 @@ The Static files and Media files have been collected and stored with Amazon Web 
 - The programming languages used were HTML5, CSS3, Python and Javascript.
 - The Code Institute 'Boutique Ado' walkthrough was followed through carefully and applied to my needs for this project for many of the features; particularly the Stripe payment code.
 - Recommended fix for HTML5 'datetime-local' failing validation when creating/editing events was found on Stack Overflow by user 'CoffeeBasedLifeform' here: https://stackoverflow.com/questions/53180600/django-datetime-not-validating-right/53194594#53194594
+- The blog app and model was created using the walkthrough at DjangoCentral: https://djangocentral.com/building-a-blog-application-with-django/
 
 ### Frameworks, Libraries and Programs:
 
